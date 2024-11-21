@@ -1,0 +1,59 @@
+% Place for layouting entire document
+\ProvidesPackage{src/preamble/layout}
+
+
+
+
+
+\geometry{
+	total={170mm,257mm},
+	left=1in,
+	right=1in,
+	top=1in,
+	bottom=2cm
+}
+
+
+% Ref: https://www.overleaf.com/learn/latex/Hyperlinks
+\hypersetup{
+	colorlinks=true,   % Default: red
+	breaklinks=false,
+	pdftitle={Graduate Thesis Report},
+	pdfstartpage=1,
+	%	pdfpagemode=FullScreen,
+	linkcolor=black,    % Internal cross-references
+	urlcolor=blue,     % Website, Local file
+	citecolor=black,   % Bibliographical citation
+	filecolor=pink,    % Local file
+}
+
+
+\newglossarystyle{customized_style}{
+	% Base style
+	\setglossarystyle{listgroup}
+	% Customization
+	\renewcommand{\glossentry}[2]{
+		\item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}$\colon$}]
+		\glossentrydesc{##1}\glspostdescription}
+}
+\setacronymstyle{long-short}
+\setglossarystyle{customized_style}
+
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[RO,LE]{\rightmark}
+
+%\fancyfoot{}
+%\fancyfoot[LE,RO]{\thepage}
+%\fancyfoot[LO,CE]{From: K. Grant}
+%\fancyfoot[CO,RE]{To: Dean A. Smith}
+
+
+% Renumber section
+\setcounter{secnumdepth}{3}  % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{3}  % how many sectioning levels to show in Table of
+\renewcommand\thesection{\Alph{section}}
+\renewcommand\thesubsection{\Roman{subsection}}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+%\renewcommand\thesubsubsubsection{\alph{subsubsubsection}}

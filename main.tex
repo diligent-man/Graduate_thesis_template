@@ -1,0 +1,96 @@
+% Author: Nguyen Duc Trong
+% Created date: 21/11/2024
+% OS: Ubuntu 24.04
+% Document purpose: Serve as a template for graduate thesis in FPTU
+% Latex compiler: Lualatex v1.18.0 (Tex Live 2024)
+% Compile command in TeXstudio: txs:///compile | txs:///makeglossaries | txs:///compile | txs:///view | txs:///clean
+% Reference backend: Biblatex
+\documentclass[twoside,a4paper]{report}
+\renewcommand{\familydefault}{\sfdefault}  % Sans-serif font
+
+\usepackage{tikz}                 % Create graphic elements
+\usepackage{xargs}                % Create new command with default parameters
+\usepackage{import}               % Import other user-coded modules
+\usepackage{lipsum}               % Placeholder text
+\usepackage{tabularx}             % Width-modifiable tabular
+\usepackage{geometry}             % Set doc layout
+\usepackage{fancyhdr}             % Header & Footer
+\usepackage{hyperref}             % Reference on online/ local
+\usepackage{biblatex}             % Create reference from .bib file
+\usepackage[acronym]{glossaries}  % Create glossary, acronym, symbol definition
+
+\usetikzlibrary{calc}  % Draw with coord
+
+% User-defined preamble
+\usepackage{src/preamble/commands}
+\usepackage{src/preamble/layout}
+\usepackage{src/preamble/glossary}
+\usepackage{src/preamble/acronym}
+
+\makeglossaries
+\addbibresource{ref.bib}
+
+
+\begin{document}
+\titlePage
+\tableofcontents
+\newpage
+
+\import{src/}{abstract.tex}\newpage
+\import{src/}{acknowledgements.tex}\newpage
+
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\newpage
+
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+\newpage
+
+\import{src/}{introduction.tex}\newpage
+\import{src/}{project_management.tex}\newpage
+
+\import{src/related_works}{works_1.tex}\newpage
+\import{src/related_works}{works_2.tex}\newpage
+\import{src/related_works}{works_3.tex}\newpage
+
+\import{src/materials}{hardware.tex}\newpage
+\import{src/materials}{framework.tex}\newpage
+\import{src/materials}{tools.tex}\newpage
+\import{src/materials/dataset}{dataset_1.tex}\newpage
+\import{src/materials/dataset}{dataset_2.tex}\newpage
+\import{src/materials/dataset}{dataset_3.tex}\newpage
+
+\import{src/methods}{method_1.tex}\newpage
+\import{src/methods}{method_2.tex}\newpage
+\import{src/methods}{method_3.tex}\newpage
+
+\import{src/methods/metrics}{metric_1.tex}\newpage
+\import{src/methods/metrics}{metric_2.tex}\newpage
+\import{src/methods/metrics}{metric_3.tex}\newpage
+
+\import{src/MLOps}{introduction.tex}\newpage
+\import{src/MLOps}{data_management.tex}\newpage
+\import{src/MLOps}{model_management.tex}\newpage
+\import{src/MLOps}{model_serving.tex}\newpage
+
+\import{src/result}{result.tex}\newpage
+\import{src/}{discussion.tex}\newpage
+\import{src/}{conclusion.tex}\newpage
+
+\section{Testing}
+Test glossary: \gls{optimizer}\\
+Test acronym: \gls{GD}\\
+Test citation:\\
+a/ \cite{einstein}\\
+b/ \cite{dirac}
+
+\addcontentsline{toc}{section}{Acronym}
+\printglossary[title=Acronym,type=\acronymtype]
+
+\addcontentsline{toc}{section}{Glossary}
+\printglossary[title=Glossary]
+
+\addcontentsline{toc}{section}{References}
+\printbibliography[title={References}]
+\end{document}

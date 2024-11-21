@@ -1,0 +1,57 @@
+% Place for adding any new user-defined command or
+% redefine available command from Latex
+\ProvidesPackage{src/preamble/commands}
+
+
+% User-defined commands
+\newcommand{\titlePage}{
+	\begin{titlepage}
+		% Framing
+		\begin{tikzpicture}[remember picture, overlay]
+			\draw[line width = 3pt]($(current page.north west) + (.9in,-.9in)$) rectangle ($(current page.south east) + (-.9in,.9in)$);
+		\end{tikzpicture}
+		\begin{center}
+			{\Large MINISTRY OF EDUCATION AND TRAINING}\\\vspace{.2cm}
+			{\Large FPT UNIVERSITY}\\\vspace{.2cm}
+			
+			{\Large DEPARTMENT OF ITS}\\
+			\img[8cm][5cm]{fig/title_page/fpt.png}\\
+			
+			{\Large GRADUATE THESIS REPORT}\\
+			\vspace{36pt}
+			
+			{\LARGE\bf PROJECT NAME}\\
+			\vspace{36pt}
+			
+			{\Large MAJOR: ARTIFICIAL INTELLIGENCE}\\
+		\end{center}
+		\vspace{1cm}
+		
+		\begin{center}
+			\begin{flushleft}
+				\hspace{2cm}{\Large MENTOR 1\hspace{1.8mm}:\bf NGUYỄN VĂN A, PhD.}\\\vspace{6pt}
+				\hspace{2cm}{\Large MENTOR 2\hspace{1.8mm}:\bf NGUYỄN VĂN A, PhD.}\\
+				\vspace{24pt}
+			    
+			    \hspace{2cm}{\Large STUDENT 1:\bf NGUYỄN VĂN A}\\\vspace{6pt}
+				\hspace{2cm}{\Large STUDENT 2:\bf NGUYỄN VĂN B}\\\vspace{6pt}
+				\hspace{2cm}{\Large STUDENT 3:\bf NGUYỄN VĂN C}\\\vspace{6pt}
+				\hspace{2cm}{\Large STUDENT 4:\bf NGUYỄN VĂN D}\\
+			\end{flushleft}
+		\end{center}
+		\vspace{3.5cm}
+		
+		\begin{center}
+			{\Large HỒ CHÍ MINH CITY, APRIL 2024}
+		\end{center}
+	\end{titlepage}
+}
+
+
+\newcommandx{\img}[5][1=4cm, 2=2cm, 3=0, 4=1]{
+	\includegraphics[width=#1, height=#2, angle=#3, scale=#4]{{#5}}
+}
+
+
+% Redefine available commands in Latex
+\renewcommand{\contentsname}{Table of Contents}
